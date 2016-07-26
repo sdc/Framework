@@ -6,5 +6,6 @@
  */
 
 return [
-    ['GET', '/', ['Jay\Controllers\Tickets', 'index']]
+    ['GET', '/', ['Jay\Controllers\Tickets', 'index']],
+    ['POST', '/', ['Jay\Controllers\Tickets', 'add']]
 ];
