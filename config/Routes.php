@@ -7,5 +7,5 @@
 
 return [
     ['GET', '/', ['Jay\Controllers\Tickets', 'index']],
-    ['POST', '/', ['Jay\Controllers\Tickets', 'add']]
+    ['POST', '/', ['Jay\Controllers\Tickets', 'create']]
 ];

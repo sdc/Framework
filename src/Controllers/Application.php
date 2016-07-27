@@ -27,4 +27,14 @@ class Application
     {
         $html = $this->template->render('homepage');
     }
+
+    public function redirect($route, $var = false)
+    {
+        $base = $this->request->getScheme().'://'.$this->request->getHttpHost();
+        $base .= '/'.urlencode($route).'/';
+        $base .= (!$var) ? '' : urlencode($var);
+
+        header("Location: $base");    
+        exit;
+    }
 }

@@ -1,6 +1,6 @@
 <?php
 /**
- * Mysql Class
+ * PDO Adapter
  *
  * @author James Byrne <jamesbwebdev@gmail.com>
  */
