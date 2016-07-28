@@ -1,9 +1,11 @@
 /*-------------------------------
---------  Global Changes  -------
+--------  Global Styles  --------
 -------------------------------*/
-h2, h3 {
+h2, h3, h4 {
 	font-family:'Patua One', cursive;
 	color:#592A8C;
+	margin-top:15px;
+	margin-bottom:15px;
 }
 body {
 	background: #b5a0cb;
@@ -33,4 +35,7 @@ body {
 .required > label:after {
 	content:' *';
 	color:#C3232D;
+}
+.no-margin {
+	margin:0;
 }

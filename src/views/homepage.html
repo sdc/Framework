@@ -3,19 +3,19 @@
 	<form role="form" method="POST">
 		<div class="row form-content">
 			<div class="col-xs-10 col-sm-11">
-				<h2>How Can we help?</h2>
+				<h3>How Can we help?</h3>
 				<p>Report to or request support from Property Services Support Desk.</p>
 				<p>See website for FAQs.</p>
 				<p>Your username (<b>$username@southdevon.ac.uk</b>) will be recorded when you submit this form. Not $username? <a href="#">Sign out</a></p>
-				<p style="color:#C3232D; font-weight:bold;">* Required</p>
+				<p class="no-margin" style="color:#C3232D; font-weight:bold;">* Required</p>
 			</div>
 			<div class="col-xs-2 col-sm-1">
-				<img style="margin-top:20px;" class="img-responsive" src="public/assets/img/property.png">
+				<img style="margin-top:15px;" class="img-responsive" src="public/assets/img/property.png">
 			</div>
 			<div class="col-xs-12">
-				<h3>Emergencies</h3>
+				<h4>Emergencies</h4>
 				<p>i.e. leaks/floods, power loss, safety or security issues - call x877</p>
-				<h3>Quick Service</h3>
+				<h4>Quick Service</h4>
 				<p>If you DON'T require progress updates - complete the next 3 boxes only</p>
 			</div>
 			<div class="col-xs-12">
@@ -25,7 +25,7 @@
 			  </div>
 			</div>
 			<div class="col-xs-12 col-md-6">
-			  <div class="input select required form-group">
+			  <div class="input select required form-group no-margin">
 			    <label for="building">Which Building?</label>
 			    <select name="building" id="building" required="required" class="form-control">
 			    	<option value=""></option>
@@ -59,13 +59,13 @@
 			  </div>
 			</div>
 			<div class="col-xs-12 col-md-6">
-			  <div class="form-group required">
+			  <div class="form-group required no-margin">
 			    <label for="pwd">Room or area?</label>
 			    <input type="text" required="required" class="form-control" id="area">
 			  </div>
 			</div>
 			<div class="col-xs-12">
-			  <h3>Full Service</h3>
+			  <h4>Full Service</h4>
 			  <p>For PROGRESS UPDATES or for where we need to contact you for information / to arrange access etc. Please ADD this information.</p>
 			</div>
 			<div class="col-xs-12 col-md-6">
@@ -104,10 +104,13 @@
 			  </div>
 			</div>
 			<div class="col-xs-12">
-			  <div class="checkbox">
+			  <div style="margin-top:0; margin-bottom:15px;" class="checkbox">
 			    <label><input type="checkbox">Send me a copy of my responses.</label>
 			  </div>
 			  <button type="submit" class="btn btn-default">Submit</button>
+			</div>
+			<div class="col-xs-12">
+				<img style="margin-top:40px; margin-bottom:15px;" class="img-responsive" src="http://southdevon.ac.uk/images/template-images/shared_images/college-partners.jpg">
 			</div>
 		</div>
 	</form>
