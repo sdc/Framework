@@ -9,26 +9,26 @@ namespace Jay\System\Database;
 
 class DataValidation
 {
-	protected $filters = [
+	private $filters = [
 		'email' 	=> FILTER_SANITIZE_EMAIL,
 		'integer' 	=> FILTER_SANITIZE_NUMBER_INT,
 		'string'	=> FILTER_SANITIZE_STRING,
 		'url'		=> FILTER_SANITIZE_URL
 	];
 
-	protected $dataType = INPUT_POST;
+	private $dataType = INPUT_POST;
 
 	public function sanitize($data, $type, $null = true)
 	{
-		$filter = isset($this->filters[$type]) ? $this->filters[$type] : null;
+		$filter = isset($this->filters[$type]) ? $this->filters[$type] : FILTER_DEFAULT;
 		$data = filter_var($data, $filter);
 
-		if (is_null($data) && $null) {
+		if (empty($data) && $null) {
 			return null;
 		}
 
-		if (is_null($data)) {
-			echo 'EMPTY SON'; exit;
+		if (empty($data)) {
+			throw new \Exception("cannot be null");
 		}
 
 		return $data;

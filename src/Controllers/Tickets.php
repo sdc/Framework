@@ -13,7 +13,7 @@ use Jay\System\Template;
 
 class Tickets extends Application
 {
-    protected $tickets;
+    private $tickets;
 
     public function __construct(Request $request, Template $template, Table $table)
     {
@@ -28,9 +28,9 @@ class Tickets extends Application
 
     public function create()
     {
-        if ($this->tickets->create($this->request->request->all())) {
-
+        $ticket = $this->tickets->createEntity($this->request->request->all());
+        if ($this->tickets->save($ticket)) {
+            echo 'Ticket Created! <hr />';
         }
-        print_r($this->tickets); exit;
     }
 }
