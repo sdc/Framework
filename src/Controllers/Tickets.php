@@ -23,12 +23,15 @@ class Tickets extends Application
 
     public function index()
     {
-        $html = $this->template->render('dev-homepage');
+        $html = $this->template->render('homepage');
     }
 
     public function create()
     {
         $ticket = $this->tickets->createEntity($this->request->request->all());
+        $ticket->sent = (int) false;
+        $ticket->date = date('m/d/Y h:i:s a');
+
         if ($this->tickets->save($ticket)) {
             echo 'Ticket Created! <hr />';
         }

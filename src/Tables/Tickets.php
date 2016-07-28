@@ -25,7 +25,7 @@ class Tickets
 		'description'	=> ['type' => 'string', 'null' => false],
 		'priority'		=> ['type' => 'string', 'null' => true],
 		'additional'	=> ['type' => 'string', 'null' => true],
-		'sent'			=> ['type' => 'boolean', 'null' => false]
+		'sent'			=> ['type' => 'int', 'null' => false]
 	];
 
 	public function __construct(Adapter $adapter, DataValidation $validator) 
@@ -72,7 +72,7 @@ class Tickets
 	{
 		$entity = new \StdClass;
 		foreach (array_keys($this->columns) as $name) {
-			$entity->$name = isset($data[$name]) ? $data[$name] : null;
+			$entity->$name = array_key_exists($name, $data) ? $data[$name] : null;
 		}
 
 		return $entity;

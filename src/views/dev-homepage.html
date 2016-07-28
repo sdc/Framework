@@ -1,9 +1,11 @@
 {% extends "layouts/#{app_layout_name}" %}
 {% block content %}
 <form method="post" accept-charset="utf-8" id="tickets" action"/">
-	<input type="text" name="name">
-	<input type="text" name="namewhat">
+	<input type="date" name="date">
+	<input type="text" name="building">
 	<input type="text" name="room">
+	<input type="text" name="description">
+	<input type="checkbox" name="sent">
 	<button type="submit">Submit</button>
 </form>
 {% endblock %}
