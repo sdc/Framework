@@ -50,11 +50,29 @@ class Tickets
 		return false;
 	}
 
-	public function validation($entity)
+	public function get($id)
+	{
+		$query = 'SELECT * FROM tickets WHERE id = :id';
+		$st = $this->db->prepare($query);
+		$st->execute(['id' => $id]);
+
+		return $this->createEntity($st->fetch());
+	}
+
+	private function validation($entity)
 	{
 		$clean = true;
 		foreach ($entity as $name => $value) {
-			if (is_array($value)) { continue; }
+			if (is_array($value)) { 
+				continue; 
+			}
+
+			if (!isset($this->columns[$name])) {
+				$clean = false;
+				$entity->errors[$name] = 'Column does not exist in table class';
+				continue;
+			}
+
 			try {
 				$entity->$name = $this->validator->sanitize(
 					$value, $this->columns[$name]['type'], $this->columns[$name]['null']
@@ -65,7 +83,7 @@ class Tickets
 			}
 		}
 
-		return $clean ? true : false;
+		return $clean;
 	}
 
 	public function createEntity($data)

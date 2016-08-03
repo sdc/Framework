@@ -23,17 +23,30 @@ class Tickets extends Application
 
     public function index()
     {
-        $html = $this->template->render('homepage');
+        $this->template->render('homepage');
     }
 
     public function create()
     {
         $ticket = $this->tickets->createEntity($this->request->request->all());
         $ticket->sent = (int) false;
-        $ticket->date = date('m/d/Y h:i:s a');
+        $ticket->date = date('Y-m-d H:i:s');
 
         if ($this->tickets->save($ticket)) {
             echo 'Ticket Created! <hr />';
         }
+    }
+
+    public function edit($params) 
+    {
+        $id = $params['id'];
+        $ticket = $this->tickets->get($id);
+
+        if ($ticket->sent) {
+            $this->redirect('mitie');
+            // flash error here
+        }
+
+        $this->template->render('edit', (array) $ticket);
     }
 }

@@ -28,10 +28,10 @@ class Application
         $html = $this->template->render('homepage');
     }
 
-    public function redirect($route, $var = false)
+    public function redirect($route = false, $var = false)
     {
         $base = $this->request->getScheme().'://'.$this->request->getHttpHost();
-        $base .= '/'.urlencode($route).'/';
+        $base .= (!$route) ? '/' : '/'.urlencode($route).'/';
         $base .= (!$var) ? '' : urlencode($var);
 
         header("Location: $base");    
