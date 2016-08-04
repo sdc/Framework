@@ -1,107 +1,107 @@
 {% extends "layouts/#{app_layout_name}" %}
 {% block content %}
-	<form role="form" method="POST">
-		<div class="row form-content">
-			<div class="col-xs-10 col-sm-11">
-				<h3>Review Your Request</h3>
-				<p>Please review your request and either edit or submit the ticket.</p>
-				<p class="no-margin" style="color:#C3232D; font-weight:bold;">* Required</p>
-			</div>
-			<div class="col-xs-2 col-sm-1">
-				<img style="margin-top:15px;" class="img-responsive" src="{{constant('BASE')}}/public/assets/img/property.png">
-			</div>
-			<div class="col-xs-12">
-			  <hr />
-			  <div class="form-group required">
-			    <label for="description">Description</label>
-			    <input name="description" required="required" type="text" class="form-control" id="description">
-			  </div>
-			</div>
-			<div class="col-xs-12 col-md-6">
-			  <div class="input select required form-group no-margin">
-			    <label for="building">Which Building?</label>
-			    <select name="building" id="building" required="required" class="form-control">
-			    	<option value=""></option>
-			    	<option value="Vantage Point Level 1">Vantage Point Level 1</option>
-			    	<option value="Vantage Point Level 2">Vantage Point Level 2</option>
-			    	<option value="Vantage Point Level 3">Vantage Point Level 3</option>
-			    	<option value="Car park areas">Car park areas</option>
-			    	<option value="Construction building">Construction building</option>
-			    	<option value="Automotive building">Automotive building</option>
-			    	<option value="University Centre - Ground floor">University Centre - Ground floor</option>
-			    	<option value="University Centre - First floor">University Centre - First floor</option>
-			    	<option value="University Centre &nbsp;- Second floor">University Centre &nbsp;- Second floor</option>
-			    	<option value="University Centre - Third floor">University Centre - Third floor</option>
-			    	<option value="Animal Care area">Animal Care area</option>
-			    	<option value="S Block">S Block</option>
-			    	<option value="T Block">T Block</option>
-			    	<option value="Syntech site">Syntech site</option>
-			    	<option value="SWEC">SWEC</option>
-			    	<option value="Heathfield Professional Centre">Heathfield Professional Centre</option>
-			    	<option value="ATDC Torquay">ATDC Torquay</option>
-			    	<option value="Noss Marine Academy">Noss Marine Academy</option>
-			    	<option value="Bradley Lane, Newton Abbott">Bradley Lane, Newton Abbott</option>
-			    	<option value="Pearl Assurance House, NA">Pearl Assurance House, NA</option>
-			    	<option value="Community College Torquay">Community College Torquay</option>
-			    	<option value="Brunel Skills Centre">Brunel Skills Centre</option>
-			    	<option value="ACL Paignton Brixham Torquay">ACL Paignton Brixham Torquay</option>
-			    	<option value="Mama Bear's Nursery">Mama Bear's Nursery</option>
-			    	<option value="Sports grass pitches">Sports grass pitches</option>
-			    	<option value="'Conservation' area">'Conservation' area</option>
-			    </select>
-			  </div>
-			</div>
-			<div class="col-xs-12 col-md-6">
-			  <div class="form-group required no-margin">
-			    <label for="area">Room or area?</label>
-			    <input name="room" type="text" required="required" class="form-control" id="area">
-			  </div>
-			</div>
-			<div class="col-xs-12">
-			  <h4>Full Service</h4>
-			  <p>For PROGRESS UPDATES or for where we need to contact you for information / to arrange access etc. Please ADD this information.</p>
-			</div>
-			<div class="col-xs-12 col-md-6">
-			  <div class="form-group">
-			    <label for="name">Requester's Name</label>
-			    <input name="name" type="text" class="form-control">
-			  </div>
-			</div>
-			<div class="col-xs-12 col-md-6">
-			  <div class="form-group">
-			    <label for="department">Department</label>
-			    <input name="department" type="text" class="form-control">
-			  </div>
-			</div>
-			<div class="col-xs-12 col-md-6">
-			  <div class="form-group">
-			    <label for="phone">Contact phone number</label>
-			    <input name="phone" type="tel" class="form-control">
-			  </div>
-			</div>
-			<div class="col-xs-12 col-md-6">
-			  <div class="input select form-group">
-			    <label for="priority">Priority</label>
-			    <select name="priority" id="priority" type="text" class="form-control">
-			    	<option value=""></option>
-						<option value="Priority 2: Urgent -  This impacts teaching (within one working day response time)">Priority 2: Urgent -  This impacts teaching (within one working day response time)</option>
-						<option value="Priority 3: Standard – Non critical (within one working week response time)">Priority 3: Standard – Non critical (within one working week response time)</option>
-						<option value="Priority 4: Projects - agreed response time">Priority 4: Projects - agreed response time</option>
-			    </select>
-			  </div>
-			</div>
-			<div class="col-xs-12">
-			  <div class="form-group">
-			    <label for="additional">Any Additional Information</label>
-			    <input type="text" class="form-control" name="additional" id="additional">
-			  </div>
-			</div>
-			<div class="col-xs-12">
-			  <button type="submit" class="btn btn-default">Submit</button>
-			</div>
-			<div class="col-xs-12">
-				<img style="margin-top:40px; margin-bottom:15px;" class="img-responsive" src="http://southdevon.ac.uk/images/template-images/shared_images/college-partners.jpg">
-			</div>
-		</div>
-	</form>
+    <form role="form" method="POST">
+        <div class="row form-content">
+            <div class="col-xs-10 col-sm-11">
+                <h3>Review Your Request</h3>
+                <p>Please review your request and either edit or submit the ticket.</p>
+                <p class="no-margin" style="color:#C3232D; font-weight:bold;">* Required</p>
+            </div>
+            <div class="col-xs-2 col-sm-1">
+                <img style="margin-top:15px;" class="img-responsive" src="{{constant('BASE')}}/public/assets/img/property.png">
+            </div>
+            <div class="col-xs-12">
+                <hr />
+                <div class="form-group required">
+                    <label for="description">Description</label>
+                    <input name="description" required="required" type="text" class="form-control" id="description">
+                </div>
+            </div>
+            <div class="col-xs-12 col-md-6">
+                <div class="input select required form-group no-margin">
+                    <label for="building">Which Building?</label>
+                    <select name="building" id="building" required="required" class="form-control">
+                        <option value=""></option>
+                        <option value="Vantage Point Level 1">Vantage Point Level 1</option>
+                        <option value="Vantage Point Level 2">Vantage Point Level 2</option>
+                        <option value="Vantage Point Level 3">Vantage Point Level 3</option>
+                        <option value="Car park areas">Car park areas</option>
+                        <option value="Construction building">Construction building</option>
+                        <option value="Automotive building">Automotive building</option>
+                        <option value="University Centre - Ground floor">University Centre - Ground floor</option>
+                        <option value="University Centre - First floor">University Centre - First floor</option>
+                        <option value="University Centre &nbsp;- Second floor">University Centre &nbsp;- Second floor</option>
+                        <option value="University Centre - Third floor">University Centre - Third floor</option>
+                        <option value="Animal Care area">Animal Care area</option>
+                        <option value="S Block">S Block</option>
+                        <option value="T Block">T Block</option>
+                        <option value="Syntech site">Syntech site</option>
+                        <option value="SWEC">SWEC</option>
+                        <option value="Heathfield Professional Centre">Heathfield Professional Centre</option>
+                        <option value="ATDC Torquay">ATDC Torquay</option>
+                        <option value="Noss Marine Academy">Noss Marine Academy</option>
+                        <option value="Bradley Lane, Newton Abbott">Bradley Lane, Newton Abbott</option>
+                        <option value="Pearl Assurance House, NA">Pearl Assurance House, NA</option>
+                        <option value="Community College Torquay">Community College Torquay</option>
+                        <option value="Brunel Skills Centre">Brunel Skills Centre</option>
+                        <option value="ACL Paignton Brixham Torquay">ACL Paignton Brixham Torquay</option>
+                        <option value="Mama Bear's Nursery">Mama Bear's Nursery</option>
+                        <option value="Sports grass pitches">Sports grass pitches</option>
+                        <option value="'Conservation' area">'Conservation' area</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-xs-12 col-md-6">
+                <div class="form-group required no-margin">
+                    <label for="area">Room or area?</label>
+                    <input name="room" type="text" required="required" class="form-control" id="area">
+                </div>
+            </div>
+            <div class="col-xs-12">
+                <h4>Full Service</h4>
+                <p>For PROGRESS UPDATES or for where we need to contact you for information / to arrange access etc. Please ADD this information.</p>
+            </div>
+            <div class="col-xs-12 col-md-6">
+                <div class="form-group">
+                    <label for="name">Requester's Name</label>
+                    <input name="name" type="text" class="form-control">
+                </div>
+            </div>
+            <div class="col-xs-12 col-md-6">
+                <div class="form-group">
+                    <label for="department">Department</label>
+                    <input name="department" type="text" class="form-control">
+                </div>
+            </div>
+            <div class="col-xs-12 col-md-6">
+                <div class="form-group">
+                    <label for="phone">Contact phone number</label>
+                    <input name="phone" type="tel" class="form-control">
+                </div>
+            </div>
+            <div class="col-xs-12 col-md-6">
+                <div class="input select form-group">
+                    <label for="priority">Priority</label>
+                    <select name="priority" id="priority" type="text" class="form-control">
+                        <option value=""></option>
+                        <option value="Priority 2: Urgent -  This impacts teaching (within one working day response time)">Priority 2: Urgent - This impacts teaching (within one working day response time)</option>
+                        <option value="Priority 3: Standard – Non critical (within one working week response time)">Priority 3: Standard – Non critical (within one working week response time)</option>
+                        <option value="Priority 4: Projects - agreed response time">Priority 4: Projects - agreed response time</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-xs-12">
+                <div class="form-group">
+                    <label for="additional">Any Additional Information</label>
+                    <input type="text" class="form-control" name="additional" id="additional">
+                </div>
+            </div>
+            <div class="col-xs-12">
+                <button type="submit" class="btn btn-default">Submit</button>
+            </div>
+            <div class="col-xs-12">
+                <img style="margin-top:40px; margin-bottom:15px;" class="img-responsive" src="http://southdevon.ac.uk/images/template-images/shared_images/college-partners.jpg">
+            </div>
+        </div>
+    </form>
 {% endblock %}
