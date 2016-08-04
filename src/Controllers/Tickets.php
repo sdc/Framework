@@ -37,16 +37,24 @@ class Tickets extends Application
         }
     }
 
-    public function edit($params) 
+    public function review($params) 
     {
         $id = $params['id'];
         $ticket = $this->tickets->get($id);
 
+        // Create is editable method? + add expiry time. 
         if ($ticket->sent) {
             $this->redirect('mitie');
             // flash error here
         }
 
-        $this->template->render('edit', (array) $ticket);
+        $this->template->render('review', (array) $ticket);
+    }
+
+    // This will be a private function when redirection to methods is resolved so editable check not required.
+    public function update($params)
+    {
+        $id = $params['id'];
+        
     }
 }
