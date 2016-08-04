@@ -26,7 +26,7 @@ class DataValidation
 		}
 
 		if (is_null($data)) {
-			throw new \Exception("cannot be null");
+			throw new \Exception("is required");
 		}
 
 		return $data;
