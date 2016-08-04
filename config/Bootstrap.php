@@ -11,7 +11,7 @@ namespace Jay;
 require __DIR__ . '/../vendor/autoload.php';
 
 $environment = 'development';
-define('BASE', 'http://localhost/mitie');
+define('BASE', 'http://dan.southdevon.ac.uk/mitie-helpdesk');
 
 use Symfony\Component\Yaml\Yaml;
 $config = Yaml::parse(file_get_contents(__DIR__.'/database.yml'))[$environment];
