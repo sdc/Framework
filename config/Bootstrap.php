@@ -11,7 +11,6 @@ namespace Jay;
 require __DIR__ . '/../vendor/autoload.php';
 
 $environment = 'development';
-define('BASE', 'http://localhost/mitie');
 
 use Symfony\Component\Yaml\Yaml;
 $config = Yaml::parse(file_get_contents(__DIR__.'/database.yml'))[$environment];
@@ -41,6 +40,10 @@ include('Dependencies.php');
  */
 $request = $injector->make('Symfony\Component\HttpFoundation\Request');
 $response = $injector->make('Symfony\Component\HttpFoundation\Response');
+
+define('BASE',  $request->getScheme().'://'.
+                $_SERVER['SERVER_NAME'].
+                str_replace('/public', '', dirname($_SERVER['PHP_SELF'])));
 
 // Define Template used in route handling
 $template = $injector->make('Jay\System\Template');

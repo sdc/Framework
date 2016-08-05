@@ -35,7 +35,7 @@ class Tickets extends Application
 
         if ($this->tickets->save($ticket)) {
             $this->flash->info('Please review your ticket and submit');
-            $this->redirect('mitie/ticket/review', $ticket->id);
+            $this->redirect('ticket/review', $ticket->id);
         }
 
         foreach ($this->ticket->errors as $error) {
@@ -63,7 +63,7 @@ class Tickets extends Application
 
         if ($this->tickets->update($params['id'], $ticket)) {
             $this->flash->success('Your ticket has been updated');
-            $this->redirect('mitie/ticket/review', $params['id']);
+            $this->redirect('ticket/review', $params['id']);
         }
 
         var_dump($ticket->errors);
@@ -80,18 +80,18 @@ class Tickets extends Application
             $this->tickets->update($params['id'], $ticket);
 
             $this->flash->success('Your ticket has been sent to Mitie');
-            $this->redirect('mitie');
+            $this->redirect();
         }
 
         $this->flash->error('There was an error submitting the ticket, please contact IT');
-        $this->redirect('mitie/ticket/review', $params['id']);
+        $this->redirect('ticket/review', $params['id']);
     }
 
     private function isEditable($ticket)
     {
         $expiry = date('Y-m-d', strtotime($ticket->date. ' + 1 days'));
         if ($ticket->sent || strtotime(date('Y-m-d')) > strtotime($expiry)) {
-            $this->redirect('mitie');
+            $this->redirect();
             $this->flash->error('Sorry, this URL is no longer valid');
             exit;
         }

@@ -34,8 +34,8 @@ class Application
 
     public function redirect($route = false, $var = false)
     {
-        $base = $this->request->getScheme().'://'.$this->request->getHttpHost();
-        $base .= (!$route) ? '/' : "/$route/";
+        $base = BASE;
+        $base .= (!$route) ? '' : "/$route/";
         $base .= (!$var) ? '' : urlencode($var);
 
         header("Location: $base");    
