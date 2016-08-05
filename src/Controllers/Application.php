@@ -9,18 +9,22 @@ namespace Jay\Controllers;
 
 use Symfony\Component\HttpFoundation\Request;
 use Jay\System\Template;
+use Jay\System\Flash;
 
 class Application
 {
     protected $request;
     protected $template;
+    protected $flash;
 
     public function __construct(
     	Request $request,
-    	Template $template
+    	Template $template,
+        Flash $flash
     ) {
         $this->request = $request;
         $this->template = $template;
+        $this->flash = $flash;
     }
 
     public function index()

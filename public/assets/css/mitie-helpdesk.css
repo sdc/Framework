@@ -23,6 +23,15 @@ body {
 .btn {
 	border-radius:0px;
 }
+.alert-error {
+	color: #a94442;
+	background-color: #f2dede;
+	border-color: #ebccd1;
+}
+.alert > h4 {
+	display: inline-block;
+	margin-bottom: 0px;
+}
 /*-------------------------------
 -------  Styling Changes  -------
 -------------------------------*/

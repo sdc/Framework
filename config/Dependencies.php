@@ -16,12 +16,14 @@ $injector = new \Auryn\Injector;
  */
 $injector->alias('Jay\System\Template', 'Jay\System\Template\TwigRenderer');
 $injector->alias('Jay\System\Adapter', 'Jay\System\Database\PDOAdapter');
+$injector->alias('Jay\System\Flash', 'Jay\System\Components\FlashMessage');
 
 /**
  * Share the same instance across application
  */
 $injector->share('Symfony\Component\HttpFoundation\Request');
 $injector->share('Symfony\Component\HttpFoundation\Response');
+$injector->share('Jay\System\Flash');
 
 /**
  * The below dependencies have construct parameters that are scalar
