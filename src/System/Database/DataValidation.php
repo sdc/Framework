@@ -21,11 +21,11 @@ class DataValidation
 	{
 		$data = isset($this->filters[$type]) ? filter_var($data, $this->filters[$type]) : $data;
 
-		if (is_null($data) && $null) {
+		if (empty($data) && $null && $data !== 0) {
 			return null;
 		}
 
-		if (is_null($data)) {
+		if (empty($data) && $data !== 0) {
 			throw new \Exception("is required");
 		}
 

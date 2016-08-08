@@ -38,9 +38,10 @@ class Tickets extends Application
             $this->redirect('ticket/review', $ticket->id);
         }
 
-        foreach ($this->ticket->errors as $error) {
-            $this->flash->error($error);
+        foreach ($ticket->errors as $field => $error) {
+            $this->flash->error($field.' '.$error);
         }
+        $this->redirect();
     }
 
     public function review($params) 
@@ -66,8 +67,10 @@ class Tickets extends Application
             $this->redirect('ticket/review', $params['id']);
         }
 
-        var_dump($ticket->errors);
-        echo 'failure'; exit; 
+        foreach ($ticket->errors as $field => $error) {
+            $this->flash->error($field.' '.$error);
+        }
+        $this->redirect('ticket/review', $params['id']);
     }
 
     public function complete($params)
