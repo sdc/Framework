@@ -36,14 +36,24 @@ class TwigRenderer implements Template
 
     	$data['app_layout_name'] = "$layout.html";
 
-        $flashRender = new \Twig_SimpleFunction('flash', [$this->flash, 'render']);
-        $this->template->addFunction($flashRender);
+        $functions = [
+            'asset' => ['html', 'asset'],
+            'flash' => ['flash', 'render'],
+            'link' => ['html', 'link']
+        ];
 
-        $asset = new \Twig_SimpleFunction('asset', [$this->html, 'asset']);
-        $this->template->addFunction($asset);        
+        $this->defineFunctions($functions);    
         
     	$this->response->setContent(
     		$this->template->render("$template.html", $data)
     	);
+    }
+
+    public function defineFunctions($functions)
+    {
+        foreach ($functions as $name => $function) {
+            $func = new \Twig_SimpleFunction($name, [$this->$function[0], $function[1]]);
+            $this->template->addFunction($func);
+        }
     }
 }

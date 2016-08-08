@@ -21,4 +21,20 @@ class HtmlHelper implements HtmlHelpderInterface
         echo '/'.BASE."/assets/$path";
         return;
     }
+
+    public function link($path)
+    {
+        if (stripos($path, 'http')) {
+            echo $path;
+            return;
+        }
+
+        if (!BASE) {
+            echo "/$path";
+            return;
+        }
+
+        echo '/'.BASE."/$path";
+        return;       
+    }
 }
