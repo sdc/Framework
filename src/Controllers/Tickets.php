@@ -91,9 +91,8 @@ class Tickets extends Application
     {
         $expiry = date('Y-m-d', strtotime($ticket->date. ' + 1 days'));
         if ($ticket->sent || strtotime(date('Y-m-d')) > strtotime($expiry)) {
-            $this->redirect();
             $this->flash->error('Sorry, this URL is no longer valid');
-            exit;
+            $this->redirect();
         }
     }
 
