@@ -34,7 +34,9 @@ class Application
 
     public function redirect($route = false, $var = false)
     {
-        $base = BASE;
+        $base = stripos($_SERVER['SERVER_PROTOCOL'],'https') ? 'https://' : 'http://';
+        $base .= "{$_SERVER['HTTP_HOST']}/";
+        $base .= (!BASE) ? '' : BASE;
         $base .= (!$route) ? '' : "/$route/";
         $base .= (!$var) ? '' : urlencode($var);
 
