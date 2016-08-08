@@ -17,6 +17,7 @@ $injector = new \Auryn\Injector;
 $injector->alias('Jay\System\Template', 'Jay\System\Template\TwigRenderer');
 $injector->alias('Jay\System\Adapter', 'Jay\System\Database\PDOAdapter');
 $injector->alias('Jay\System\Flash', 'Jay\System\Components\FlashMessage');
+$injector->alias('Jay\System\HtmlHelper', 'Jay\System\Components\HtmlHelper');
 
 /**
  * Share the same instance across application
