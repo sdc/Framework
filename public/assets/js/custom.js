@@ -1,11 +1,10 @@
 function toggle_fields(){
     if ($('input, select').attr('disabled')) {
         $('input, select').removeAttr('disabled');
-        $('#submit').attr('disabled','disabled');
         $('#edit, #save').toggleClass('hidden');
+        $('#submit-btn').fadeOut('fast');
     } else {
         $('input, select').attr('disabled', 6);
-        $('#submit').removeAttr('disabled');
         $('#edit, #save').toggleClass('hidden');
     }
 }
