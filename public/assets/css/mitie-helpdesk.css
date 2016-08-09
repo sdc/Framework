@@ -71,3 +71,18 @@ body {
 .no-margin {
     margin:0;
 }
+/*-------------------------------
+--------  Media Queries  --------
+-------------------------------*/
+@media (max-width: 992px) {
+    .btn-margin {
+        margin-bottom:5px;
+    }
+    .container {
+        margin-top:0;
+        margin-bottom:0;
+    }
+    .alert {
+        margin-top:15px;
+    }
+}
