@@ -38,9 +38,7 @@ class Tickets extends Application
             $this->redirect('ticket/review', $ticket->id);
         }
 
-        foreach ($ticket->errors as $field => $error) {
-            $this->flash->error($field.' '.$error);
-        }
+        $this->outputErrors($ticket);
         $this->redirect();
     }
 
@@ -50,7 +48,6 @@ class Tickets extends Application
         $ticket->id = $params['id'];
 
         $this->isEditable($ticket);
-
         $this->template->render('review', (array) $ticket);
     }
 
@@ -67,9 +64,7 @@ class Tickets extends Application
             $this->redirect('ticket/review', $params['id']);
         }
 
-        foreach ($ticket->errors as $field => $error) {
-            $this->flash->error($field.' '.$error);
-        }
+        $this->outputErrors($ticket);
         $this->redirect('ticket/review', $params['id']);
     }
 
@@ -97,6 +92,13 @@ class Tickets extends Application
             $this->flash->error('Sorry, this URL is no longer valid');
             $this->redirect();
         }
+    }
+
+    private function outputErrors($ticket)
+    {
+        foreach ($ticket->errors as $field => $error) {
+            $this->flash->error($field.' '.$error);
+        }        
     }
 
     private function sendEmail($ticket)
