@@ -64,13 +64,13 @@
             <div class="col-xs-12 col-md-6">
                 <div class="form-group">
                     <label for="name">Requester's Name</label>
-                    <input disabled name="name" type="text" class="form-control" value="{{ name }}">
+                    <input disabled name="name" type="text" class="form-control" value="{{ name|convert_encoding('UTF-8', 'HTML-ENTITIES') }}">
                 </div>
             </div>
             <div class="col-xs-12 col-md-6">
                 <div class="form-group">
                     <label for="department">Department</label>
-                    <input disabled name="department" type="text" class="form-control" value="{{ department }}">
+                    <input disabled name="department" type="text" class="form-control" value="{{ department|convert_encoding('UTF-8', 'HTML-ENTITIES') }}">
                 </div>
             </div>
             <div class="col-xs-12 col-md-6">
@@ -99,7 +99,7 @@
             <div class="col-xs-12 col-md-6">
                 <div class="form-group">
                     <label for="additional">Any Additional Information</label>
-                    <input value="{{ additional }}" disabled type="text" class="form-control" name="additional" id="additional">
+                    <input value="{{ additional|convert_encoding('UTF-8', 'HTML-ENTITIES') }}" disabled type="text" class="form-control" name="additional" id="additional">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-6">
