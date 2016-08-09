@@ -7,9 +7,9 @@
 
 namespace Jay\System\Components;
 
-use Jay\System\HtmlHelper as HtmlHelpderInterface;
+use Jay\System\HtmlHelper as HtmlHelperInterface;
 
-class HtmlHelper implements HtmlHelpderInterface
+class HtmlHelper implements HtmlHelperInterface
 {
     public function asset($path)
     {

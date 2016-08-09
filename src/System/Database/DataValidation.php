@@ -15,17 +15,15 @@ class DataValidation
         'url'       => FILTER_SANITIZE_URL
     ];
 
-    private $dataType = INPUT_POST;
-
     public function sanitize($data, $type, $null = true)
     {
         $data = isset($this->filters[$type]) ? filter_var($data, $this->filters[$type]) : $data;
 
-        if (empty($data) && $null && $data !== 0) {
-            return null;
-        }
+        if (empty($data) && $data !== 0 && $data !== '0') {
+            if ($null) {
+                return null;
+            }
 
-        if (empty($data) && $data !== 0) {
             throw new \Exception("is required");
         }
 

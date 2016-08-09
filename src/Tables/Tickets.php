@@ -44,6 +44,7 @@ class Tickets
             $query = "INSERT INTO tickets ($cols) VALUES ($vals)";
             $st = $this->db->prepare($query);
             $st->execute((array) $entity);
+
             $entity->id = $this->db->lastInsertId();
             return true;
         }
@@ -54,12 +55,12 @@ class Tickets
     public function update($id, $entity)
     {
         if ($this->validation($entity)) {
-            $entity->id = $id;
-            foreach ($this->columns as $name => $column) {
+            foreach (array_keys($this->columns) as $name) {
                 $sets[] = $name.' = :'.$name;
             }
+            
             $sets = implode(', ', $sets);
-
+            $entity->id = $id;
             $query = "UPDATE tickets SET $sets WHERE id = :id";
             $st = $this->db->prepare($query);
             $st->execute((array) $entity);
@@ -88,6 +89,7 @@ class Tickets
 
             if (!isset($this->columns[$name])) {
                 $entity->errors[$name] = 'Column does not exist in table class';
+                $clean = false;
                 continue;
             }
 

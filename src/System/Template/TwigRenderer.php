@@ -31,7 +31,7 @@ class TwigRenderer implements Template
     public function render($template, $data = [], $layout = 'default')
     {
         if (isset($data['app_layout_name'])) {
-            exit;
+            throw new \Exception("app_layout_name is a reserved value");
         }
 
         $data['app_layout_name'] = "$layout.html";

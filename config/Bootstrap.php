@@ -55,14 +55,12 @@ $allRoutes = function (\FastRoute\RouteCollector $r) {
     }
 };
 
-define('BASE', $base);
 $dispatcher = \FastRoute\simpleDispatcher($allRoutes);
 
-// Get dirname of PHP_SELF and remove /public directory name from string.
-$base = str_replace('/public', '', dirname($_SERVER['PHP_SELF']));
-
 // Do not incluce URL paramters in route request 
-$uri = explode('?', str_replace($base, '', $_SERVER['REQUEST_URI']), 2)[0];
+$uri = explode('?', str_replace("/$base", '', $_SERVER['REQUEST_URI']), 2)[0];
+
+define('BASE', $base);
 
 // Get route information from dispatcher
 $route = $dispatcher->dispatch($request->getMethod(), $uri);
