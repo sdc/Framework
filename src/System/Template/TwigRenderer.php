@@ -30,11 +30,11 @@ class TwigRenderer implements Template
 
     public function render($template, $data = [], $layout = 'default')
     {
-    	if (isset($data['app_layout_name'])) {
-    		exit;
-    	}
+        if (isset($data['app_layout_name'])) {
+            exit;
+        }
 
-    	$data['app_layout_name'] = "$layout.html";
+        $data['app_layout_name'] = "$layout.html";
 
         $functions = [
             'asset' => ['html', 'asset'],
@@ -44,9 +44,9 @@ class TwigRenderer implements Template
 
         $this->defineFunctions($functions);    
         
-    	$this->response->setContent(
-    		$this->template->render("$template.html", $data)
-    	);
+        $this->response->setContent(
+            $this->template->render("$template.html", $data)
+        );
     }
 
     public function defineFunctions($functions)

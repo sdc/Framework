@@ -2,72 +2,72 @@
 --------  Global Styles  --------
 -------------------------------*/
 h2, h3, h4 {
-	font-family:'Patua One', cursive;
-	color:#592A8C;
-	margin-top:15px;
-	margin-bottom:15px;
+    font-family:'Patua One', cursive;
+    color:#592A8C;
+    margin-top:15px;
+    margin-bottom:15px;
 }
 body {
-	background: #b5a0cb;
-	background: -moz-linear-gradient(top,  #b5a0cb 0%, #592a8c 100%);
-	background: -webkit-linear-gradient(top,  #b5a0cb 0%,#592a8c 100%);
-	background: linear-gradient(to bottom,  #b5a0cb 0%,#592a8c 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b5a0cb', endColorstr='#592a8c',GradientType=0 );
+    background: #b5a0cb;
+    background: -moz-linear-gradient(top,  #b5a0cb 0%, #592a8c 100%);
+    background: -webkit-linear-gradient(top,  #b5a0cb 0%,#592a8c 100%);
+    background: linear-gradient(to bottom,  #b5a0cb 0%,#592a8c 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b5a0cb', endColorstr='#592a8c',GradientType=0 );
 }
 /*-------------------------------
 ------  Bootstrap Changes  ------
 -------------------------------*/
 .form-control {
-	border-radius:0px;
+    border-radius:0px;
 }
 .btn {
-	border-radius:0px;
+    border-radius:0px;
 }
 .alert-error {
-	color: #a94442;
-	background-color: #f2dede;
-	border-color: #ebccd1;
+    color: #a94442;
+    background-color: #f2dede;
+    border-color: #ebccd1;
 }
 .alert > h4 {
-	display: inline-block;
-	margin-bottom: 0px;
+    display: inline-block;
+    margin-bottom: 0px;
 }
 .container {
-	margin-top:15px;
-	margin-bottom:15px;
+    margin-top:15px;
+    margin-bottom:15px;
 }
 .btn-default {
-	border-color:#9a9a9a;
-	color:#fff;
-	background: #b5a0cb;
-	background: -moz-linear-gradient(top,  #b5a0cb 0%, #592a8c 100%);
-	background: -webkit-linear-gradient(top,  #b5a0cb 0%,#592a8c 100%);
-	background: linear-gradient(to bottom,  #b5a0cb 0%,#592a8c 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b5a0cb', endColorstr='#592a8c',GradientType=0 );
+    border-color:#9a9a9a;
+    color:#fff;
+    background: #b5a0cb;
+    background: -moz-linear-gradient(top,  #b5a0cb 0%, #592a8c 100%);
+    background: -webkit-linear-gradient(top,  #b5a0cb 0%,#592a8c 100%);
+    background: linear-gradient(to bottom,  #b5a0cb 0%,#592a8c 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b5a0cb', endColorstr='#592a8c',GradientType=0 );
 }
 .btn-default:hover {
-	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#947da3+0,4e2572+100 */
-	background: #947da3; /* Old browsers */
-	background: -moz-linear-gradient(top,  #947da3 0%, #4e2572 100%); /* FF3.6-15 */
-	background: -webkit-linear-gradient(top,  #947da3 0%,#4e2572 100%); /* Chrome10-25,Safari5.1-6 */
-	background: linear-gradient(to bottom,  #947da3 0%,#4e2572 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#947da3', endColorstr='#4e2572',GradientType=0 ); /* IE6-9 */
-	color:#fff;
-	border-color:#9a9a9a;
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#947da3+0,4e2572+100 */
+    background: #947da3; /* Old browsers */
+    background: -moz-linear-gradient(top,  #947da3 0%, #4e2572 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top,  #947da3 0%,#4e2572 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom,  #947da3 0%,#4e2572 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#947da3', endColorstr='#4e2572',GradientType=0 ); /* IE6-9 */
+    color:#fff;
+    border-color:#9a9a9a;
 }
 /*-------------------------------
 -------  Styling Changes  -------
 -------------------------------*/
 .form-content {
-	background-color:#fff;
+    background-color:#fff;
 }
 .required > label {
-	font-weight:bold;
+    font-weight:bold;
 }
 .required > label:after {
-	content:' *';
-	color:#C3232D;
+    content:' *';
+    color:#C3232D;
 }
 .no-margin {
-	margin:0;
+    margin:0;
 }

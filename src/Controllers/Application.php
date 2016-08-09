@@ -18,8 +18,8 @@ class Application
     protected $flash;
 
     public function __construct(
-    	Request $request,
-    	Template $template,
+        Request $request,
+        Template $template,
         Flash $flash
     ) {
         $this->request = $request;
