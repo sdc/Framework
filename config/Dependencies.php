@@ -49,7 +49,7 @@ $injector->define('PDO', [
 
 // delegates
 $injector->delegate('Twig_Environment', function() use ($injector) {
-    $loader = new Twig_Loader_Filesystem(dirname(__DIR__) . '/src/views');
+    $loader = new Twig_Loader_Filesystem(dirname(__DIR__) . '/src/Views');
     $twig = new Twig_Environment($loader);
     return $twig;
 });

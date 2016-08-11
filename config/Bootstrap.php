@@ -71,13 +71,13 @@ switch ($route[0]) {
         // 404 HTTP status code
         $response->setStatusCode(404);
         // Render 404 html error page
-        $template->render('errors/404');
+        $template->render('Errors/404');
         break;
     case \FastRoute\Dispatcher::METHOD_NOT_ALLOWED:
         // 405 HTTP status code
         $response->setStatusCode(405);
         // Render 405 html error page
-        $template->render('errors/405');
+        $template->render('Errors/405');
         break;
     case \FastRoute\Dispatcher::FOUND:
         $class = $route[1][0];
