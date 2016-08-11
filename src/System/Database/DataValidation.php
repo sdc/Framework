@@ -29,4 +29,9 @@ class DataValidation
 
         return $data;
     }
+
+    public function validate($data, $options)
+    {
+        return true;
+    }
 }
