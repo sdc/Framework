@@ -15,71 +15,71 @@ class Ticket
 {
 	private $accessor;
 
-	public function __construct(DataValidation $validator, TicketAccessor $accessor)
+	public function __construct(TicketAccessor $accessor)
 	{
-		$this->validator = $validator;
 		$this->accessor = $accessor;
 	}
 
-	public function validation(TicketEntity $entity)
+	private function validation($entity)
 	{
-		$this->validator->validate($entity->name, [
-				'type' => 'string',
-				'null' => true
-			]);
+		$validator = new DataValidation($entity);
 
-		$this->validator->validate($entity->email, [
-				'type' => 'email',
-				'null' => true
-			]);
+		$validator->check('name', [
+			'type' => 'string',
+			'null' => true
+		]);
 
-		$this->validator->validate($entity->date, [
-				'type' => 'date',
-				'null' => false
-			]);
+		$validator->check('email', [
+			'type' => 'email',
+			'null' => true
+		]);
 
-		$this->validator->validate($entity->department, [
-				'type' => 'string',
-				'null' => true
-			]);
+		$validator->check('date', [
+			'type' => 'date',
+			'null' => false
+		]);
 
-		$this->validator->validate($entity->phone, [
-				'type' => 'string',
-				'null' => true
-			]);
+		$validator->check('department', [
+			'type' => 'string',
+			'null' => true
+		]);
 
-		$this->validator->validate($entity->building, [
-				'type' => 'string',
-				'null' => false
-			]);
+		$validator->check('phone', [
+			'type' => 'integer',
+			'null' => true
+		]);
 
-		$this->validator->validate($entity->room, [
-				'type' => 'string',
-				'null' => false
-			]);
+		$validator->check('building', [
+			'type' => 'string',
+			'null' => false
+		]);
 
-		$this->validator->validate($entity->description, [
-				'type' => 'string',
-				'null' => false
-			]);
+		$validator->check('room', [
+			'type' => 'string',
+			'null' => false
+		]);
 
-		$this->validator->validate($entity->priority, [
-				'type' => 'string',
-				'null' => true
-			]);
+		$validator->check('description', [
+			'type' => 'string',
+			'null' => false
+		]);
 
-		$this->validator->validate($entity->additional, [
-				'type' => 'string',
-				'null' => false
-			]);
+		$validator->check('priority', [
+			'type' => 'string',
+			'null' => true
+		]);
 
-		$this->validator->validate($entity->priority, [
-				'type' => 'boolean',
-				'null' => false
-			]);
+		$validator->check('additional', [
+			'type' => 'string',
+			'null' => true
+		]);
 
-		if (isset($this->validator->errors)) {
-			$entity->errors = $this->validator->errors;
+		$validator->check('sent', [
+			'type' => 'boolean',
+			'null' => false
+		]);
+
+		if (property_exists($entity, 'errors')) {
 			return false;
 		}
 
@@ -94,5 +94,34 @@ class Ticket
 		}
 
 		return false;
+	}
+
+	public function get($id)
+	{
+		$data = $this->accessor->select($id);
+		
+		$ticket = new TicketEntity;
+		$this->mergeEntity($ticket, $data);
+
+		return $ticket;
+	}
+
+	public function update($id, $entity)
+	{
+		if ($this->validation($entity)) {
+			$this->accessor->update($id, $entity);
+			return true;
+		}
+
+		return false;
+	}
+
+	public function mergeEntity($entity, $data)
+	{
+        foreach ($data as $name => $value) {
+            if (property_exists($entity, $name)) {
+                $entity->$name = $value;
+            }
+        }
 	}
 }

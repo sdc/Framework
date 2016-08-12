@@ -9,6 +9,8 @@ namespace Jay\Models\Entities;
 
 class Ticket
 {
+	public $id;
+
 	public $name;
 
 	public $email; 
@@ -31,4 +33,19 @@ class Ticket
 
 	public $sent;
 
+	public function __construct()
+	{
+		$this->setDate();
+		$this->setSent();
+	}
+
+	public function setDate()
+	{
+		$this->date = date('Y-m-d');
+	}
+
+	public function setSent()
+	{
+		$this->sent = (int) false;
+	}
 }

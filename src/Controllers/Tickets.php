@@ -7,7 +7,8 @@
 
 namespace Jay\Controllers;
 
-use Jay\Tables\Tickets as Table;
+use Jay\Models\Tables\Ticket as Table;
+use Jay\Models\Entities\Ticket;
 use Symfony\Component\HttpFoundation\Request;
 use Jay\System\Template;
 use Jay\System\Flash;
@@ -29,11 +30,10 @@ class Tickets extends Application
 
     public function create()
     {
-        $ticket = $this->tickets->createEntity($this->request->request->all());
-        $ticket->sent = (int) false;
-        $ticket->date = date('Y-m-d H:i:s');
+        $ticket = new Ticket;
+        $this->tickets->mergeEntity($ticket, $this->request->request->all());
 
-        if ($this->tickets->save($ticket)) {
+        if ($this->tickets->create($ticket)) {
             $this->flash->info('Please review your ticket and submit');
             $this->redirect('ticket/review', $ticket->id);
         }
@@ -45,7 +45,6 @@ class Tickets extends Application
     public function review($params) 
     {
         $ticket = $this->tickets->get($params['id']);
-        $ticket->id = $params['id'];
 
         $this->isEditable($ticket);
         $this->template->render('review', (array) $ticket);
@@ -55,9 +54,9 @@ class Tickets extends Application
     public function update($params)
     {
         $ticket = $this->tickets->get($params['id']);
+        
         $this->isEditable($ticket);
-
-        $this->tickets->updateEntity($ticket, $this->request->request->all());
+        $this->tickets->mergeEntity($ticket, $this->request->request->all());
 
         if ($this->tickets->update($params['id'], $ticket)) {
             $this->flash->success('Your ticket has been updated');
@@ -85,22 +84,6 @@ class Tickets extends Application
         $this->redirect('ticket/review', $params['id']);
     }
 
-    private function isEditable($ticket)
-    {
-        $expiry = date('Y-m-d', strtotime($ticket->date. ' + 1 days'));
-        if ($ticket->sent || strtotime(date('Y-m-d')) > strtotime($expiry)) {
-            $this->flash->error('Sorry, this URL is no longer valid');
-            $this->redirect();
-        }
-    }
-
-    private function outputErrors($ticket)
-    {
-        foreach ($ticket->errors as $field => $error) {
-            $this->flash->error($field.' '.$error);
-        }        
-    }
-
     private function sendEmail($ticket)
     {
         $email = "#MAXIMO_EMAIL_BEGIN\nLSNRACTION=CREATE\n;\nLSNRAPPLIESTO=SR\n;\n";
@@ -118,5 +101,21 @@ class Tickets extends Application
         }
 
         return false;
+    }
+
+    private function isEditable($ticket)
+    {
+        $expiry = date('Y-m-d', strtotime($ticket->date. ' + 1 days'));
+        if ($ticket->sent || strtotime(date('Y-m-d')) > strtotime($expiry)) {
+            $this->flash->error('Sorry, this URL is no longer valid');
+            $this->redirect();
+        }
+    }
+
+    private function outputErrors($ticket)
+    {
+        foreach ($ticket->errors as $field => $error) {
+            $this->flash->error($field.' '.$error);
+        }        
     }
 }
