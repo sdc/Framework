@@ -39,11 +39,14 @@ class DataValidation
             throw new \Exception("Type $type for $$name is unrecognised");
         }
 
-        if (!$this->validateNotNull($this->entity->$name) && !$options['null']) {
-            $this->entity->errors[$name] = 'Cannot be null';
+        if ($this->validateNotNull($this->entity->$name)) {
+            $this->entity->$name = $this->{"validate{$options['type']}"}($name);
+            return;
         }
 
-        $this->entity->$name = $this->{"validate{$options['type']}"}($name);
+        if (!$options['null']) {
+            $this->entity->errors[$name] = 'Cannot be null';
+        }
     }
 
     private function validateString($name)
@@ -58,7 +61,7 @@ class DataValidation
         $sanitize = filter_var($this->entity->$name, FILTER_SANITIZE_EMAIL);
 
         if (!filter_var($sanitize, FILTER_VALIDATE_EMAIL)) {
-            $this->entity->errors[$name] = '$name is not a valid email';
+            $this->entity->errors[$name] = 'is not a valid email';
         }
 
         return $sanitize;
@@ -81,7 +84,7 @@ class DataValidation
         $sanitize = (int) filter_var($this->entity->$name, FILTER_SANITIZE_NUMBER_INT);
 
         if (!filter_var($sanitize, FILTER_VALIDATE_INT)) {
-            $this->entity->errors[$name] = '$name is not a valid integer';
+            $this->entity->errors[$name] = 'is not a valid integer';
         }
 
         return $sanitize;        
