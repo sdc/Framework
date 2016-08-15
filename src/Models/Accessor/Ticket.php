@@ -19,11 +19,11 @@ class Ticket
 
     public function insert($entity)
     {
-        $query = 'INSERT INTO tickets';
-        $query.= '(id, name, email, date, department, phone, building, room, description, ';
-        $query.= 'priority, additional, sent)';
-        $query.= 'VALUES (:id, :name, :email, :date, :department, :phone, :building, :room, ';
-        $query.= ':description, :priority, :additional, :sent)';
+        $query = 'INSERT INTO tickets 
+                  (id, name, email, date, department, phone, building, room, description, 
+                  priority, additional, sent) 
+                  VALUES (:id, :name, :email, :date, :department, :phone, :building, :room, 
+                  :description, :priority, :additional, :sent)';
 
         $st = $this->db->prepare($query);
         $st->execute((array) $entity);
@@ -41,11 +41,11 @@ class Ticket
 
     public function update($id, $entity)
     {     
-        $query = 'UPDATE tickets ';
-        $query.= 'SET name = :name, email = :email, date = :date, department = :department, ';
-        $query.= 'phone = :phone, building = :building, room = :room, description = :description, ';
-        $query.= 'priority = :priority, additional = :additional, sent = :sent ';
-        $query.= 'WHERE id = :id';
+        $query = 'UPDATE tickets 
+                  SET name = :name, email = :email, date = :date, department = :department, 
+                  phone = :phone, building = :building, room = :room, description = :description, 
+                  priority = :priority, additional = :additional, sent = :sent 
+                  WHERE id = :id';
         $st = $this->db->prepare($query);
 
         $st->execute((array) $entity);
